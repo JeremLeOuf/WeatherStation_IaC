@@ -1,0 +1,6 @@
+flask
+requests
+python-dotenv
+boto3  # For AWS interaction
+google-cloud-compute  # For GCP interaction
+azure-mgmt-compute  # For Azure interaction
