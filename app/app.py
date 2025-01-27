@@ -15,6 +15,7 @@ def index():
 
 
 @app.route('/weather', methods=['GET'])
+@app.route('/weather', methods=['GET'])
 def get_weather():
     city = request.args.get('city')
     if not city:
@@ -30,7 +31,8 @@ def get_weather():
 
     data = response.json()
     return jsonify({
-        "city": city,
+        "city": data["name"],
+        "country": data["sys"]["country"],  # Add the country code
         "temperature": data["main"]["temp"],
         "description": data["weather"][0]["description"],
         "icon": data["weather"][0]["icon"],  # Weather icon
