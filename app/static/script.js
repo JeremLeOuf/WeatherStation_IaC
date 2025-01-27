@@ -18,7 +18,7 @@ async function getWeather() {
 
             // Update the web app with weather data
             resultDiv.innerHTML = `
-                <h2>Weather in ${data.city}, ${data.country}</h2>
+                <h2>Current weather in ${data.city}, ${data.country}:</h2>
                 <img src="http://openweathermap.org/img/wn/${data.icon}@4x.png" alt="Weather icon" class="weather-icon">
                 <p>Temperature: ${data.temperature} °C - ${description}</p>
                 <p>Humidity: ${data.humidity}%</p>
