@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify
 import os
 import requests
 from dotenv import load_dotenv
@@ -14,7 +14,6 @@ def index():
     return app.send_static_file('index.html')
 
 
-@app.route('/weather', methods=['GET'])
 @app.route('/weather', methods=['GET'])
 def get_weather():
     city = request.args.get('city')
@@ -32,7 +31,7 @@ def get_weather():
     data = response.json()
     return jsonify({
         "city": data["name"],
-        "country": data["sys"]["country"],  # Add the country code
+        "country": data["sys"]["country"],  # Country code
         "temperature": data["main"]["temp"],
         "description": data["weather"][0]["description"],
         "icon": data["weather"][0]["icon"],  # Weather icon
