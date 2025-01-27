@@ -31,3 +31,14 @@ async function getWeather() {
         resultDiv.innerHTML = `<p style="color: red;">Failed to fetch data. Please try again.</p>`;
     }
 }
+
+// Add event listener to handle "Enter" keypress
+document.getElementById('city').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent form submission
+        getWeather(); // Call the getWeather function
+    }
+});
+
+// Optional: Add event listener to the button for validation
+document.querySelector('button').addEventListener('click', getWeather);
