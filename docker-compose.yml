@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  weather-app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    container_name: weatherapp_container
+    image: weatherapp_img
