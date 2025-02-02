@@ -1,18 +1,6 @@
-version: "3.9"
 services:
   weather-app:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
+    build: .
     ports:
-      - "8080:8080"
-    env_file:
-      - .env
+      - "80:80"
     container_name: weatherapp_container
-    image: weatherapp_img
-    volumes:
-      - ./app:/app # Mount the local app folder to the container's /app folder
-    command: flask run --host=0.0.0.0 --port=8080 --reload # Enable Flask's auto-reload
-    environment:
-      - FLASK_APP=app.py
-      - FLASK_ENV=development

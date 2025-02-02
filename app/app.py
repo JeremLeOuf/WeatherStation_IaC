@@ -1,12 +1,11 @@
 from flask import Flask, request, jsonify
-import os
 import requests
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
-app = Flask(__name__)
 OPENWEATHERMAP_API_KEY = os.getenv("OPENWEATHERMAP_API_KEY")
+app = Flask(__name__)
 
 
 @app.route('/')
@@ -21,8 +20,8 @@ def get_weather():
         return jsonify({"error": "City parameter is required"}), 400
 
     response = requests.get(
-        f"http://api.openweathermap.org/data/2.5/weather",
-        params={"q": city, "appid": OPENWEATHERMAP_API_KEY, "units": "metric"}
+        "http://api.openweathermap.org/data/2.5/weather",
+        params={"q": city, "appid": OPENWEATHERMAP_API_KEY, "units": "metric"},
     )
 
     if response.status_code != 200:
@@ -42,4 +41,4 @@ def get_weather():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=80)
